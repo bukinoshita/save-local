@@ -1,0 +1,13 @@
+{
+  "name": "save-local",
+  "version": "0.0.0",
+  "description": "Save stuff locally",
+  "main": "index.js",
+  "repository": "https://github.com/bukinoshita/save-local.git",
+  "author": "Bu Kinoshita <bukinoshita@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "caesar-encrypt": "^0.0.2",
+    "node-persist": "^2.1.0"
+  }
+}
