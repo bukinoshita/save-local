@@ -7,7 +7,7 @@ const { encrypt, decrypt } = require('caesar-encrypt')
 class SaveLocal {
   constructor(store) {
     storage.initSync({
-      dir: store
+      dir: path.resolve(__dirname, store)
     })
   }
 
