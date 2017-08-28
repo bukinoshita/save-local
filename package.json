@@ -1,6 +1,6 @@
 {
   "name": "save-local",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Save stuff locally",
   "main": "index.js",
   "repository": "https://github.com/bukinoshita/save-local.git",
@@ -9,7 +9,13 @@
   "scripts": {
     "test": "xo --quiet"
   },
-  "keywords": ["save", "save-local", "store", "storage", "save-me"],
+  "keywords": [
+    "save",
+    "save-local",
+    "store",
+    "storage",
+    "save-me"
+  ],
   "dependencies": {
     "caesar-encrypt": "^0.0.2",
     "node-persist": "^2.1.0"
@@ -19,6 +25,8 @@
     "xo": "^0.18.2"
   },
   "xo": {
-    "extends": ["prettier"]
+    "extends": [
+      "prettier"
+    ]
   }
 }
