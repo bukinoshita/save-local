@@ -1,4 +1,4 @@
-# save-local
+# save-local [![Build Status](https://travis-ci.org/bukinoshita/save-local.svg?branch=master)](https://travis-ci.org/bukinoshita/save-local)
 
 > Save stuff locally
 
