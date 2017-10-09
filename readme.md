@@ -89,6 +89,12 @@ Required
 
 name of the item saved
 
+#### .list()
+
+Returns a `promise`
+
+Get an array with all `names` and `values`
+
 
 ## Related
 

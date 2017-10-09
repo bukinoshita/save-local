@@ -28,6 +28,18 @@ class SaveLocal {
   remove(name) {
     return storage.removeItem(name)
   }
+
+  list() {
+    return new Promise(resolve => {
+      const packages = storage.keys()
+      const list = []
+      packages.forEach(async name => {
+        const value = await this.get(name)
+        list.push({ name, value })
+        resolve(list)
+      })
+    })
+  }
 }
 
 module.exports = SaveLocal
