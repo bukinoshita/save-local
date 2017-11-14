@@ -1,13 +1,16 @@
 'use strict'
 
-const path = require('path')
+const { join } = require('path')
+const { homedir } = require('os')
 const storage = require('node-persist')
 const { encrypt, decrypt } = require('caesar-encrypt')
 
 class SaveLocal {
   constructor(store) {
+    const s = `.${store}`
+
     storage.initSync({
-      dir: path.resolve(__dirname, store)
+      dir: join(homedir(), s)
     })
   }
 
