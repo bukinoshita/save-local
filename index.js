@@ -1,47 +1,42 @@
-'use strict'
-
+// Packages
 const { join } = require('path')
 const { homedir } = require('os')
 const storage = require('node-persist')
 const { encrypt, decrypt } = require('caesar-encrypt')
 
 class SaveLocal {
-  constructor(store) {
+  constructor(store = 'storage') {
     const s = `.${store}`
 
-    storage.initSync({
+    storage.init({
       dir: join(homedir(), s)
     })
   }
 
-  get(item) {
-    return storage.getItem(item).then(res => {
-      if (res) {
-        return decrypt(res, 20)
-      }
+  async get(item) {
+    const hasItem = await storage.getItem(item)
 
-      return false
-    })
+    return hasItem && hasItem
   }
 
-  set({ name, value }) {
-    return storage.setItem(name, encrypt(value, 20))
+  set(item) {
+    const value = encrypt(item.value, 20)
+
+    return storage.setItem(item.name, value)
   }
 
   remove(name) {
     return storage.removeItem(name)
   }
 
-  list() {
-    return new Promise(resolve => {
-      const packages = storage.keys()
-      const list = []
-      packages.forEach(async name => {
-        const value = await this.get(name)
-        list.push({ name, value })
-        resolve(list)
-      })
+  async list() {
+    const list = []
+    await storage.forEach(item => {
+      const value = decrypt(item.value, 20)
+      return list.push({ name: item.key, value })
     })
+
+    return list
   }
 }
 

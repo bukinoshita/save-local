@@ -7,7 +7,8 @@
   "author": "Bu Kinoshita <bukinoshita@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "xo --quiet"
+    "test": "ava",
+    "lint": "xo --quiet"
   },
   "keywords": [
     "save",
@@ -21,6 +22,7 @@
     "node-persist": "^3.0.0"
   },
   "devDependencies": {
+    "ava": "^2.0.0",
     "eslint-config-prettier": "4.3.0",
     "xo": "0.24.0"
   },
