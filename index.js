@@ -16,7 +16,7 @@ class SaveLocal {
   async get(item) {
     const hasItem = await storage.getItem(item)
 
-    return hasItem && hasItem
+    return hasItem && decrypt(hasItem, 20)
   }
 
   set(item) {
