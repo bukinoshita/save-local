@@ -17,6 +17,9 @@ const SaveLocal = require('save-local')
 
 const saveLocal = new SaveLocal('store')
 
+// you must call saveLocal.init() to initialize the instance
+await saveLocal.init()
+
 saveLocal.set({ name: 'token', value: 'my-token' })
 saveLocal.get('token').then(value => console.log(value))
 // => my-token
@@ -37,6 +40,12 @@ Required
 store name
 
 ### methods
+
+#### .init()
+
+Returns a `promise`
+
+Initializes the local store
 
 #### .set([options])
 
