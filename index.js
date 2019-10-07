@@ -6,10 +6,12 @@ const { encrypt, decrypt } = require('caesar-encrypt')
 
 class SaveLocal {
   constructor(store = 'storage') {
-    const s = `.${store}`
+    this.store = `.${store}`
+  }
 
-    storage.init({
-      dir: join(homedir(), s)
+  async init() {
+    await storage.init({
+      dir: join(homedir(), this.store)
     })
   }
 
